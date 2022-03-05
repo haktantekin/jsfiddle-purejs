@@ -8,7 +8,13 @@ const createHistorySection = () => {
     for (const localStoregeItem in localStoregeItems) {
         localStoregeItemsArr.push(localStoregeItem);
     }
-    historyBox.innerHTML = `
+    if(localStoregeItemsArr.length == 0){
+        historyBox.style.display ="none";
+
+    }
+    else{
+        historyBox.style.display ="block";
+        historyBox.innerHTML = `
         <button type="button" class="history-box-dropdown dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">History</button>
         <ul class="dropdown-menu history-box-dropdown-menu">
             ${localStoregeItemsArr.map((item) => {
@@ -18,6 +24,8 @@ const createHistorySection = () => {
         }).join('')}
         </ul>
     `;
+
+    }
 }
 
 //Data Localstroge'a aktarılıyor
@@ -173,26 +181,3 @@ document.addEventListener('keydown', e => {
         renderContent(htmlEditor.getValue(), cssEditor.getValue(), jsEditor.getValue());
     }
 });
-
-// drag width
-
-const BORDER_SIZE = 4;
-const panel = document.querySelector('.col-js-editor');
-
-let m_pos;
-function resize(e){
-  const dx = m_pos - e.x;
-  m_pos = e.x;
-  panel.style.width = (parseInt(getComputedStyle(panel, '').width) + dx) + "px";
-}
-
-panel.addEventListener("mousedown", function(e){
-  if (e.offsetX < BORDER_SIZE) {
-    m_pos = e.x;
-    document.addEventListener("mousemove", resize, false);
-  }
-}, false);
-
-document.addEventListener("mouseup", function(){
-    document.removeEventListener("mousemove", resize, false);
-}, false);
