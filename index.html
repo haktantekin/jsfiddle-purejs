@@ -1,0 +1,70 @@
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haktan Tekin Code Editor Case</title>
+</head>
+<body>
+<header>
+    <div class="history-box"></div>
+    <div class="save">
+        <button id="saveTemplate" type="button" class="save-template" data-bs-toggle="modal" data-bs-target="#keepCode">Save</button>
+    </div>
+</header>
+<main>
+    <div class="result">
+        <div class="section-title">
+            Result
+        </div>
+        <iframe id="result-iframe"></iframe>
+    </div>
+</main>
+<footer>
+    <div class="bottom-section">
+        <div class="bottom-edits">
+            <button class="bottom-edits-mini" id="minimize" type="button">Minimize</button>
+            <button class="bottom-edits-run" id="run" type="button" >Run</button>
+        </div>
+    </div>
+    
+    <div class="bottom-code">
+        <div class="bottom-code-panel">
+            <div class="labels row">
+                <span class="label-javascript col">Javascript</span>
+                <span class="label-html col">HTML</span>
+                <span class="label-css col">CSS</span>
+            </div>
+            <div class="editors row">
+                <div class="col-js-editor col"><textarea id="javascriptEditor"></textarea></div>
+                <div class="col-html-editor col"><textarea id="htmlEditor"></textarea></div>
+                <div class="col-css-editor col"><textarea id="cssEditor"></textarea></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="modal fade" id="keepCode" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Keep Code</h2>
+                <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+            </div>
+            <div class="modal-body">
+                <label for="editor-title" class="modal-label">Keep Code:</label>
+                <input type="text" required class="form-control" id="editor-title">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-in-save" data-bs-dismiss="modal" onclick="keepCode()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    
+    <link href="assets/public/css/natkah-min.css" rel="stylesheet" rel="preload" as="style" onload="this.rel='stylesheet'" />
+    <script async src="assets/public/js/natkah-min.js"></script>
+</body>
+</html>
